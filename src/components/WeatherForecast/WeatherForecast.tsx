@@ -3,6 +3,7 @@ import WeatherService from "../../services/WeatherService";
 import { tokenHelper } from "../../utils/tokenHelper";
 import ErrorDisplay from "../Shared/ErrorDisplay";
 import { WeatherForecastResponse } from "../../models/WeatherForecast";
+import Logout from "../Auth/Logout";
 
 export const WeatherForecast = () => {
     const [forecast, setForecast] = useState<WeatherForecastResponse[]>([]);
@@ -26,6 +27,7 @@ export const WeatherForecast = () => {
 
     return (
         <div>
+            <Logout />
             <h2>Weather Forecast</h2>
             {error && <ErrorDisplay message={error} />}
             {forecast.length > 0 ? (
