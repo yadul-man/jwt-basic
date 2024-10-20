@@ -7,6 +7,7 @@ export const useAuth = () => {
         !!AuthService.getToken()
     );
 
+    // Returns true if login is successful. Else false.
     const login = async (email: string, password: string) => {
         const result: AuthResponse | null = await AuthService.login(
             email,
@@ -20,6 +21,7 @@ export const useAuth = () => {
         }
     };
 
+    // Calls the register API and returns the response irrespective of the status
     const register = async (name: string, email: string, password: string) => {
         const result: AuthResponse | null = await AuthService.register(
             name,
@@ -29,6 +31,7 @@ export const useAuth = () => {
         return result;
     };
 
+    // Logout from the app
     const logout = () => {
         AuthService.logout();
         setIsAuthenticated(false);
