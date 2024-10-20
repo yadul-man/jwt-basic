@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import WeatherService from "../../services/WeatherService";
 import { tokenHelper } from "../../utils/tokenHelper";
 import ErrorDisplay from "../Shared/ErrorDisplay";
+import { WeatherForecastResponse } from "../../models/WeatherForecast";
 
 export const WeatherForecast = () => {
-    const [forecast, setForecast] = useState<any[]>([]);
+    const [forecast, setForecast] = useState<WeatherForecastResponse[]>([]);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
